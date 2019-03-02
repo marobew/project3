@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+<body>
+{%block contents%}
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+
+    {%for blog in blogs.all%}
+      <div class="col-md-4">
+        
+          <h2>{{blog.title}}</h2>
+          <p>{{blog.pub_date}}</p>
+          <p>{{blog.summary}}<a href="{%url 'detail' blog.id%}">...more</a></p>
+          <br><br><br>
+          {% comment %} <a class="btn btn-secondary" href="{%url 'detail' blog.id%}" role="button">View details &raquo;</a> {% endcomment %}
+        
+      </div>
+    {%endfor%}
+    
+    <hr>
+
+  </div> <!-- /container -->
+
+</main>
+
+<footer class="container">
+  <br>
+  <p>&copy; Boram</p>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+</html>
+{%endblock%}
